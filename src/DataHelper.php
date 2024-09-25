@@ -45,20 +45,28 @@ class DataHelper {
         foreach ( $data as $datum ):
             $floatNumber = (float)$datum;
 
-            if ( $floatNumber > $maxValue ):
+            if ( !isset( $maxValue ) ):
+                $maxValue = $floatNumber;
+            elseif ( $floatNumber > $maxValue ):
                 $maxValue = $floatNumber;
             endif;
 
-            if ( $floatNumber < $minValue ):
+
+            if ( !isset( $minValue ) ):
+                $minValue = $floatNumber;
+            elseif ( $floatNumber < $minValue ):
                 $minValue = $floatNumber;
             endif;
 
             $stringNumber = (string)$datum;
             $numberParts  = explode( '.', $stringNumber );
 
+
             $tempWhole   = $numberParts[ 0 ];
             $tempDecimal = $numberParts[ 1 ] ?? NULL;
 
+            //var_dump($tempWhole);
+            //var_dump($tempDecimal);
             $tempWholeDigits = strlen( $tempWhole );
             if ( $tempWholeDigits > $numWholeDigits ):
                 $numWholeDigits = $tempWholeDigits;
