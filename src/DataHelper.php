@@ -61,6 +61,7 @@ class DataHelper {
             $stringNumber = (string)$datum;
             $numberParts  = explode( '.', $stringNumber );
 
+            print_r($numberParts);
 
             $tempWhole   = $numberParts[ 0 ];
             $tempDecimal = $numberParts[ 1 ] ?? NULL;
@@ -72,8 +73,10 @@ class DataHelper {
                 $numWholeDigits = $tempWholeDigits;
             endif;
 
-            $tempNumDecimals = strlen( $tempDecimal );
-            if ( $tempNumDecimals > $precision ):
+            $tempNumDecimals = @strlen( $tempDecimal );
+            if ( !isset( $precision ) ):
+                $precision = $tempNumDecimals;
+            elseif ( $tempNumDecimals > $precision ):
                 $precision = $tempNumDecimals;
             endif;
         endforeach;
