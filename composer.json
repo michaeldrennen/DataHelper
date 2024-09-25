@@ -1,0 +1,22 @@
+{
+    "name": "michaeldrennen/data-helper",
+    "description": "A PHP library to help make sense of your data sets.",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^11.3"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MichaelDrennen\\DataHelper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michael Drennen",
+            "email": "michaeldrennen74@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
