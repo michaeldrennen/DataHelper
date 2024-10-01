@@ -42,8 +42,14 @@ class DataHelper {
         $numWholeDigits = NULL;
         $precision      = NULL;
 
+        $signed = FALSE;
+
         foreach ( $data as $datum ):
             $floatNumber = (float)$datum;
+
+            if ( 0 > $floatNumber ):
+                $signed = TRUE;
+            endif;
 
             if ( !isset( $maxValue ) ):
                 $maxValue = $floatNumber;
@@ -61,15 +67,21 @@ class DataHelper {
             $stringNumber = (string)$datum;
             $numberParts  = explode( '.', $stringNumber );
 
-            print_r($numberParts);
+            //print_r( $numberParts );
 
             $tempWhole   = $numberParts[ 0 ];
             $tempDecimal = $numberParts[ 1 ] ?? NULL;
 
+            $unsignedTempWhole = str_replace('-','',$tempWhole);
+
             //var_dump($tempWhole);
             //var_dump($tempDecimal);
             $tempWholeDigits = strlen( $tempWhole );
-            if ( $tempWholeDigits > $numWholeDigits ):
+            if ( !isset( $tempWholeDigits ) ):
+                $numWholeDigits = $tempWholeDigits;
+            elseif ( $tempWholeDigits > $numWholeDigits ):
+                var_dump($tempWhole);
+                var_dump($tempWholeDigits);
                 $numWholeDigits = $tempWholeDigits;
             endif;
 
@@ -84,7 +96,8 @@ class DataHelper {
         return new NumericDataAnalysis( $minValue,
                                         $maxValue,
                                         $numWholeDigits,
-                                        $precision );
+                                        $precision,
+                                        $signed );
     }
 
 }
