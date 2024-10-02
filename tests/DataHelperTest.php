@@ -23,7 +23,7 @@ class DataHelperTest extends TestCase {
      */
     public function testNumericDataShouldReturnNumericDataAnalysis() {
         $data = [
-            10.045506619144603,
+            199990.12345678901234567890,
             -0.69429657794677,
             0.045506619144603,
             3.83,

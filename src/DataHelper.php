@@ -76,7 +76,7 @@ class DataHelper {
 
             //var_dump($tempWhole);
             //var_dump($tempDecimal);
-            $tempWholeDigits = strlen( $tempWhole );
+            $tempWholeDigits = strlen( $unsignedTempWhole );
             if ( !isset( $tempWholeDigits ) ):
                 $numWholeDigits = $tempWholeDigits;
             elseif ( $tempWholeDigits > $numWholeDigits ):
