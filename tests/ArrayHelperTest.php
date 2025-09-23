@@ -41,4 +41,25 @@ class ArrayHelperTest extends TestCase {
         $this->assertEquals(3, count($matches));
     }
 
+
+    /**
+     * @test
+     * @group array
+     */
+    public function testLeftToRightLooseMatchesShouldReturnMatches() {
+        $matches = ArrayHelper::makeMap($this->leftArray, $this->rightArray, -1);
+        $this->assertEquals(3, count($matches));
+    }
+
+
+
+    /**
+     * @test
+     * @group array
+     */
+    public function testRightToLeftLooseMatchesShouldReturnMatches() {
+        $matches = ArrayHelper::makeMap($this->leftArray, $this->rightArray, 1);
+        $this->assertEquals(3, count($matches));
+    }
+
 }

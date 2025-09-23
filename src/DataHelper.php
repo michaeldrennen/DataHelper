@@ -80,8 +80,8 @@ class DataHelper {
             if ( !isset( $tempWholeDigits ) ):
                 $numWholeDigits = $tempWholeDigits;
             elseif ( $tempWholeDigits > $numWholeDigits ):
-                var_dump($tempWhole);
-                var_dump($tempWholeDigits);
+                //var_dump($tempWhole);
+                //var_dump($tempWholeDigits);
                 $numWholeDigits = $tempWholeDigits;
             endif;
 

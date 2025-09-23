@@ -48,7 +48,7 @@ class DataHelperTest extends TestCase {
         $dataHelper   = new DataHelper();
         $dataAnalysis = $dataHelper->recommendDataType( $data );
 
-        print_r($dataAnalysis);
+        //print_r($dataAnalysis);
 
         $this->assertInstanceOf( NumericDataAnalysis::class, $dataAnalysis );
     }
