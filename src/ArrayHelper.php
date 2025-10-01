@@ -100,4 +100,23 @@ class ArrayHelper {
     }
 
 
+    public static function insertAfter(array $array, string $afterKey, array $newElement): array
+    {
+        $keys = array_keys($array);
+        $index = array_search($afterKey, $keys);
+
+        if ($index === false):
+            return $array + $newElement;
+        endif;
+
+        // Position to insert at
+        $index++;
+
+        $start = array_slice($array, 0, $index, true);
+        $end = array_slice($array, $index, null, true);
+
+        return $start + $newElement + $end;
+    }
+
+
 }
