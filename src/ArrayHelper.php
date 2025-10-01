@@ -100,6 +100,13 @@ class ArrayHelper {
     }
 
 
+    /**
+     * @param array  $array
+     * @param string $afterKey
+     * @param array  $newElement
+     *
+     * @return array
+     */
     public static function insertAfter(array $array, string $afterKey, array $newElement): array
     {
         $keys = array_keys($array);

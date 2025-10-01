@@ -62,4 +62,22 @@ class ArrayHelperTest extends TestCase {
         $this->assertEquals(3, count($matches));
     }
 
+
+    /**
+     * @test
+     * @group array
+     * @group insert
+     */
+    public function testInsertAfterShouldPlaceElementAtCorrectSpot() {
+        $array = [
+            'a',
+            'b',
+            'c',
+            'd',
+            'e',
+        ];
+        $array = ArrayHelper::insertAfter($array, 'b', 'x');
+        $this->assertEquals('x', $array[1]);
+    }
+
 }
